@@ -1,35 +1,50 @@
-# Laravel + Bagisto E-commerce API
+```
+Laravel + Bagisto E-commerce API
 
-##   Project Objective
+Project Objective
 This project is a lightweight e-commerce backend built using Laravel and the Bagisto framework. It exposes essential e-commerce operations via REST APIs such as categories, products, cart, and checkout processes.
 
 This project was developed in response to a Laravel Developer Assessment task.
 
+
+This project includes a database dump file: **`bagisto-ecommerce-api3.php`**.
 ---
 
-## Setup Instructions
+Setup Instructions
 
-### 1. Clone the Repository
+1. Clone the Repository
 
-```bash
-git clone https://github.com/your-username/bagisto-ecommerce-api.git
+bash
+git clone https://github.com/zafar01/bagisto-ecommerce-api.git
 cd bagisto-ecommerce-api
 
 
 2. Install Dependencies
-composer install
-npm install && npm run dev
+    composer install
+    npm install 
 
-3. Environment Configuration
-Configure your database settings in the .env file:
-DB_DATABASE=your_database_name
-DB_USERNAME=your_db_username
-DB_PASSWORD=your_db_password
+3. Optional: Add .env.example and Ignore .env
+    Copy .env to .env.example
+ 
+
+4. Environment Configuration
+    Configure your database settings in the .env file:
+    DB_DATABASE=your_database_name
+    DB_USERNAME=your_db_username
+    DB_PASSWORD=your_db_password
+
+5. Generate Key & Migrate
+    php artisan key:generate
+    php artisan migrate
+    php artisan db:seed
+
+6. Storage Link 
+    php artisan storage:link
 
 
-4.Run the Application
-php artisan serve
-Now visit: http://127.0.0.1:8000
+7. Run the Application
+    php artisan serve
+    Now visit: http://127.0.0.1:8000
 
 API Endpoints (Custom & Bagisto)
 
@@ -58,6 +73,42 @@ POST /api/checkout/cart
 Checkout Flow
 Billing/Shipping Address
 POST /api/checkout/onepage/addresses (Bearer Token Required)
+
+{
+  "billing": {
+    "id": 1,
+    "address": [
+      "83/146, Q.No. 5 Parampurwa"
+    ],
+    "save_as_address": false,
+    "use_for_shipping": false,
+    "first_name": "Zafar",
+    "last_name": "Husain",
+    "email": "mcazafar@gmail.com",
+    "company_name": "funkysouq",
+    "city": "Kanpur",
+    "state": "UP",
+    "country": "IN",
+    "postcode": 208014,
+    "phone": 9795075367
+  },
+  "shipping": {
+    "id": null,
+    "address": [
+      "819  Farnum Road"
+    ],
+    "save_as_address": false,
+    "first_name": "Zafar",
+    "last_name": "Husain",
+    "email": "mcazafar@gmail.com",
+    "company_name": "funkysouq",
+    "city": "Kanpur",
+    "state": "UP",
+    "country": "IN",
+    "postcode": 208014,
+    "phone": 9795075367
+  }
+}
 
 Shipping Method
 POST /api/checkout/onepage/shipping-methods (Bearer Token Required)
@@ -101,4 +152,4 @@ Notes
  
 Zafar Husain
 Email: mcazafar@gmail.com
-GitHub: [your-github-profile-link]
+GitHub: https://github.com/zafar01/
