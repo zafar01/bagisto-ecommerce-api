@@ -21,6 +21,7 @@ class ProductController extends Controller
        
 	    $filteredProducts = $products->map(function ($product) {
         return [
+		'id' => $product->id,
             'name' => $product->name,
             'price' => $product->price,
             'short_description' => $product->short_description,
